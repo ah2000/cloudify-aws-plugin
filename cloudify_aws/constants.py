@@ -180,9 +180,9 @@ INSTANCE_INTERNAL_ATTRIBUTES_POST_CREATE = \
 AGENTS_SECURITY_GROUP = 'agents_security_group'
 AGENTS_KEYPAIR = 'agents_keypair'
 AGENTS_AWS_INSTANCE_PARAMETERS = 'agents_instance_parameters'
-INSTANCE_KEYPAIR_RELATIONSHIP = 'instance_connected_to_keypair'
-INSTANCE_SUBNET_RELATIONSHIP = 'instance_contained_in_subnet'
-INSTANCE_SUBNET_CONNECTED_TO_RELATIONSHIP = 'instance_connected_to_subnet'
+INSTANCE_KEYPAIR_RELATIONSHIP = 'cloudify.aws.relationships.instance_connected_to_keypair'
+INSTANCE_SUBNET_RELATIONSHIP = 'cloudify.aws.relationships.instance_contained_in_subnet'
+INSTANCE_SUBNET_CONNECTED_TO_RELATIONSHIP = 'cloudify.aws.relationships.instance_connected_to_subnet'
 
 ADMIN_PASSWORD_PROPERTY = 'password'  # the server's password
 
@@ -208,6 +208,6 @@ BOTO_CONFIG_SCHEMA = {
     'Boto': ['ec2_region_name', 'ec2_region_endpoint']
 }
 
-INSTANCE_SECURITY_GROUP_RELATIONSHIP = 'instance_connected_to_security_group'
-SECURITY_GROUP_VPC_RELATIONSHIP = 'security_group_contained_in_vpc'
+INSTANCE_SECURITY_GROUP_RELATIONSHIP = 'cloudify.aws.relationships.instance_connected_to_security_group'
+SECURITY_GROUP_VPC_RELATIONSHIP = 'cloudify.aws.relationships.security_group_contained_in_vpc'
 RUNTIME_PROPERTIES = [AWS_TYPE_PROPERTY, EXTERNAL_RESOURCE_ID]
