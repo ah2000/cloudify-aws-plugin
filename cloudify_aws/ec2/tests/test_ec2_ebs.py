@@ -239,6 +239,22 @@ class TestEBS(testtools.TestCase):
         self.assertIn('aws_resource_id', ctx.instance.runtime_properties)
 
     @mock_ec2
+    def test_volume_external_resource_passing_volume_type(self):
+        """ This tests that create sets the aws_volume_type
+        runtime_properties
+        """
+
+        ctx = self.mock_volume_node('test_volume_external_resource_passing_volume_type')
+        current_ctx.set(ctx=ctx)
+        volume = self.get_volume()
+        ctx.node.properties['use_external_resource'] = True
+        ctx.node.properties['resource_id'] = volume.id
+		ctx.node.properties['volume_type'] = 'gp2'
+        args = dict()
+        output = ebs.create(args)
+        self.assertEqual(True, output)
+		
+    @mock_ec2
     def test_create_external_volume(self):
         """ This tests that this function returns False
         if use_external_resource is false.
