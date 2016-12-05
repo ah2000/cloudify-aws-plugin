@@ -249,11 +249,11 @@ class TestEBS(testtools.TestCase):
         volume = self.get_volume()
         ctx.node.properties['use_external_resource'] = True
         ctx.node.properties['resource_id'] = volume.id
-		ctx.node.properties['volume_type'] = 'gp2'
+        ctx.node.properties['volume_type'] = 'gp2'
         args = dict()
         output = ebs.create(args)
         self.assertEqual(True, output)
-		
+        
     @mock_ec2
     def test_create_external_volume(self):
         """ This tests that this function returns False
