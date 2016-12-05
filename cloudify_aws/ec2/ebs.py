@@ -194,7 +194,7 @@ class Ebs(AwsBaseNode):
 
         create_volume_args = dict(
             size=ctx.node.properties['size'],
-            zone=ctx.node.properties[constants.ZONE]
+            zone=ctx.node.properties[constants.ZONE],
             volume_type=ctx.node.properties['volume_type'] if ctx.node.properties.get('volume_type', None) != None else 'standard'
         )
         create_volume_args = utils.update_args(create_volume_args, args)
